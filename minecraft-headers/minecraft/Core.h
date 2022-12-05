@@ -11,31 +11,11 @@ namespace Core {
 
     class Path {
     public:
-        PathPart mPath;
+        PathPart mPathPart;
 
-        Path(std::string a1) {
-            mPath.mUtf8StdString = a1;
+        Path(const std::string &a) {
+            mPathPart.mUtf8StdString = a;
         }
     };
-
-    template<typename T>
-    class PathBuffer {
-        T value;
-
-    public:
-        T &get() {
-            return value;
-        }
-
-        operator T &() noexcept {
-            return value;
-        }
-
-        operator T const &() const noexcept {
-            return value;
-        }
-    };
-
-    typedef Core::PathBuffer<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > HeapPathBuffer;
 
 }
